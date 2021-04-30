@@ -2,4 +2,4 @@ steps:
   - id: "Rodando unit test"
     name: "gcr.io/cloud-builders/go:alpine"
     args: ["test", ".", "-v"]
-    env: ["PROJECT_ROOT=go-k8s"]
+    env: ["PROJECT_ROOT=go"]
