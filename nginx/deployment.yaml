@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-k8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-k8s
+  template:
+    metadata:
+      labels:
+        app: nginx-k8s
+    spec:
+      containers:
+      - name: nginx-k8s
+        image: nginx:1.17-alpine
+        ports:
+          - containerPort: 80
+
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: nginx-html
+          readOnly: true
+
+      volumes:
+      - name: nginx-html
+        configMap:
+          name: nginx-html
+          items:
+            - key: index.html
+              path: index.html
