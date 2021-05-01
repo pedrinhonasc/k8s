@@ -2,10 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: go-server
-sepc:
+spec:
   replicas: 1
   selector:
-    matachLabels:
+    matchLabels:
       app: go-server
   template:
     metadata:
@@ -16,4 +16,4 @@ sepc:
       - name: go-k8s
         image: jpedronascimentofilho/go-k8s
         ports:
-          - containerPort: 8001
+          - containerPort: 8000
