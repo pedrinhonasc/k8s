@@ -12,4 +12,4 @@ COPY --from=builder /go/bin/greeting /go/bin/greeting
 
 ENTRYPOINT [ "/go/bin/greeting" ]
 
-EXPOSE 8001
+EXPOSE 8000
